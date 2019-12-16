@@ -1,0 +1,17 @@
+{
+  "name": "DrYamok's bot",
+  "version": "1.0.0",
+  "description": "A chat bot for STEM Place based on Mikarific's template",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ronan, Mikarific",
+  "license": "MIT",
+  "dependencies": {
+    "https": "^4.0.0",
+    "blessed":"^0.1.81",
+    "blessed-contrib":"^4.8.18",
+    "ws": "^7.2.0"
+  }
+}
