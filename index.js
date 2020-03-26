@@ -419,9 +419,9 @@ function connect() {
   function sendResult(str) {
     serverLog.log("Schedule: " + str)
     buffer.push(JSON.stringify({"type":"ChatMessage","message":(head + " " + str + " " + tail)}));
-    //buffer.push('{"type":"ChatMessage","message":"' + (head + " " + str + " " + tail).replace("\"", "'") + '"}');
-    //ws.send('{"type":"ChatMessage","message":"'+(head+" "+str+" "+tail).replace("\"","\\\"")+'"}');
-    //console.log((new Date()).toISOString()+" : " + '{"type":"ChatMessage","message":"'+(head+" "+str+" "+tail).replace("\"","\\\"")+'"}');
+    buffer.push('{"type":"ChatMessage","message":"' + (head + " " + str + " " + tail).replace("\"", "'") + '"}');
+    ws.send('{"type":"ChatMessage","message":"'+(head+" "+str+" "+tail).replace("\"","\\\"")+'"}');
+    console.log((new Date()).toISOString()+" : " + '{"type":"ChatMessage","message":"'+(head+" "+str+" "+tail).replace("\"","\\\"")+'"}');
   }
   var runBuffer = setInterval(function() {
     if (buffer.length > bufferLimit) {
