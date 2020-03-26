@@ -164,7 +164,8 @@ function connect() {
         !badges.includes("Donator")&&
         !badges.includes("Moderator")&&
         !badges.includes("Developer")&&
-        !badges.includes("Admin")
+        !badges.includes("Admin")&&
+        !badges.includes("RegUser")
       ) {
         if(!limitedWarning) {
           sendResult("Limited mode is active! Only Moderators, Donators, and Trusted Users may use the bot at this time.");
