@@ -452,3 +452,5 @@ screen.render()
   serverLog.emit('attach');
   line.emit('attach');
 });*/
+var mikaprompt = '/mikaleave';
+var pxlcnt = '/pxlcount';
