@@ -454,3 +454,4 @@ screen.render()
 });*/
 
 var newprompt = '/mikaleave';
+var newprompt2 = '/pxlcount';
