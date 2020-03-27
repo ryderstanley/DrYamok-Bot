@@ -20,6 +20,7 @@ const blessed = require('blessed'),
 const https = require('https');
 const runtime = require('minimist')(process.argv.slice(2));
 
+// grid variable
 var line = grid.set(0, 0, 1, 2, contrib.line, {
   showNthLabel: 1,
   style: {
@@ -32,6 +33,7 @@ var line = grid.set(0, 0, 1, 2, contrib.line, {
   label: 'Overall Activity'
 })
 
+// donut grid set
 var donut = grid.set(0, 2, 1, 1, contrib.donut, {
   label: 'Load',
   radius: 16,
@@ -43,11 +45,14 @@ var donut = grid.set(0, 2, 1, 1, contrib.donut, {
   }]
 });
 
+// grid log
 var log = grid.set(1, 0, 2, 1, contrib.log, {
   fg: "green",
   selectedFg: "green",
   label: 'Raw Socket'
 });
+
+//server log for grid
 var serverLog = grid.set(1, 1, 2, 1, contrib.log, {
   fg: "green",
   label: 'Server Logs'
@@ -63,14 +68,18 @@ screen.key(['escape', 'q', 'C-c'], function(ch, key) {
   return process.exit(0);
 });
 
-
+// active limit
 let active = "limit";
 
+// if (runtime prop)
 if(runtime.hasOwnProperty("m")) {
   active = runtime.m;
 }
 
+// buffer declare
 let buffer = [];
+
+// buffer limit
 let bufferLimit = 5;
 
 let activity = 0;
@@ -81,10 +90,14 @@ setInterval(function() {
   activity = 0;
 }, 5000);
 
+// tail head function
 let tail;
 let head = "{Node}";
 
+// cooldown lock bool
 let cooldownLock = false;
+
+// cool down declare
 let cooldown;
 
 let counter = 0;
@@ -95,10 +108,12 @@ let time = 0;
 
 let limitedWarning=false;
 
-let trusted = ["BRH0208", "MiniatureKitten", "Mikarific", "Silver","NSpeed","SoftwareKitten","CP_Pixels"];
+// trusted user array
+let trusted = ["BRH0208", "MiniatureKitten", "Mikarific", "Silver","NSpeed","SoftwareKitten","CP_Pixels, Ryder"];
 
 let command;
 
+// web connect function
 function connect() {
   const ws = new WebSocket('wss://hotchocolate.exposed/ws', { //update as place is blocked
     headers: {
