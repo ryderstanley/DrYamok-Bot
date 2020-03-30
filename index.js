@@ -111,14 +111,14 @@ function connect() {
     activity++;
     lineData.y[lineData.y.length - 1]++;
     line.setData([lineData]);
-    /*if (data.type == "chat_cooldown") {
+    if (data.type == "chat_cooldown") {
       clearTimeout(cooldown);
       cooldownLock = true;
       cooldown = setTimeout(function() {
         cooldownLock = false;
       }, data.diff);
       sendResult(data.message); //reschedule
-    }*/
+    }
     if (data.type == "chat_message") {
       var content = data.message.message_raw;
       var author = data.message.author;
@@ -131,7 +131,7 @@ function connect() {
         silence = false;
       }
       var badges = [];
-      //"badges":[{"displayName":"Donator","tooltip":"Donator","type":"icon","cssIcon":"fas fa-dollar-sign"},{"displayName":"10k+","tooltip":"10k+ Pixels Placed","type":"text"}]
+      badges":[{"displayName":"Donator","tooltip":"Donator","type":"icon","cssIcon":"fas fa-dollar-sign"},{"displayName":"10k+","tooltip":"10k+ Pixels Placed","type":"text"}]
       for (var i = 0; i < data.message.badges.length; i++) {
         badges.push(data.message.badges[i].displayName);
       }
@@ -359,7 +359,7 @@ function connect() {
             });
           }
           break;
-        /*case "/count":
+        case "/count":
           counter++;
           var needNew = true;
           for (var i = 0; i < counterContribs.length && needNew; i++) {
@@ -419,9 +419,9 @@ function connect() {
   function sendResult(str) {
     serverLog.log("Schedule: " + str)
     buffer.push(JSON.stringify({"type":"ChatMessage","message":(head + " " + str + " " + tail)}));
-    //buffer.push('{"type":"ChatMessage","message":"' + (head + " " + str + " " + tail).replace("\"", "'") + '"}');
-    //ws.send('{"type":"ChatMessage","message":"'+(head+" "+str+" "+tail).replace("\"","\\\"")+'"}');
-    //console.log((new Date()).toISOString()+" : " + '{"type":"ChatMessage","message":"'+(head+" "+str+" "+tail).replace("\"","\\\"")+'"}');
+    buffer.push('{"type":"ChatMessage","message":"' + (head + " " + str + " " + tail).replace("\"", "'") + '"}');
+    ws.send('{"type":"ChatMessage","message":"'+(head+" "+str+" "+tail).replace("\"","\\\"")+'"}');
+    console.log((new Date()).toISOString()+" : " + '{"type":"ChatMessage","message":"'+(head+" "+str+" "+tail).replace("\"","\\\"")+'"}');
   }
   var runBuffer = setInterval(function() {
     if (buffer.length > bufferLimit) {
@@ -446,9 +446,9 @@ connect();
 
 screen.render()
 
-/*screen.on('resize', function() {
+screen.on('resize', function() {
   donut.emit('attach');
   log.emit('attach');
   serverLog.emit('attach');
   line.emit('attach');
-});*/
+});
