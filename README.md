@@ -1,5 +1,5 @@
 # DrYamok-Bot
-Dr. Yamok's bot. See license for usage.
+Dr Yamok bot is an open source bot written in Javascript, made for Pxls.Space and STEMPlace. See license for usage.
 
 ## Installing
 1. Clone this git repo with `git clone https://github.com/Place-bots/DrYamok-Bot.git`  
