@@ -1,6 +1,5 @@
 # DrYamok-Bot
-Dr. Yamok's bot. See license for usage.
-
+DrYamok Bot is an open source bot developed for pxls.space and StemPlace. 
 ## Installing
 1. Clone this git repo with `git clone https://github.com/Place-bots/DrYamok-Bot.git`  
 2. Moce into the created Directory `cd DrYamok-Bot`
